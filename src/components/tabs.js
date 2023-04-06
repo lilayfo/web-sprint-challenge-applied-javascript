@@ -13,9 +13,18 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-}
 
-const tabsAppender = (selector) => {
+  const topicsWrapper = document.createElement('div');
+  topics.forEach((linkText) => {
+    const link = document.createElement('div');
+    topicsWrapper.appendChild(link);
+    link.textContent = linkText;
+  });
+  topicsWrapper.classList.add('topics');
+  return topicsWrapper;
+};
+
+function tabsAppender(selector) {
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
@@ -23,6 +32,17 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-}
-
-export { Tabs, tabsAppender }
+    //GET HELP
+    // const tabsAppender = (selector) => {
+    //   fetch('http://localhost:5000/api/topics')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //   const topics = data.topics;
+    //   const tabs = new Tabs(topics);
+    //   const element = document.querySelector(selector);
+    //   element.appendChild(tabs.render());
+    //   });
+    //   };
+};
+    export { Tabs, tabsAppender}
+     
