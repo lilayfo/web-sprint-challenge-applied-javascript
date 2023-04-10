@@ -32,17 +32,23 @@ function tabsAppender(selector) {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-    //GET HELP
-    // const tabsAppender = (selector) => {
-    //   fetch('http://localhost:5000/api/topics')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //   const topics = data.topics;
-    //   const tabs = new Tabs(topics);
-    //   const element = document.querySelector(selector);
-    //   element.appendChild(tabs.render());
-    //   });
-    //   };
-};
-    export { Tabs, tabsAppender}
+      const URL = 'http://localhost:5001/api/topics'
+      
+      const result = axios.get(URL)
+      .then(res => {
+          // access to data returned from api
+          console.log(res.data)
+          const topics = data.topics;
+          element.target.textContent = res.data.topics;
+          const tabs = Tabs(topics);
+      const element = document.querySelector(selector).appendChild(tabs.render());
+      })
+      .catch(err => {
+        debugger
+      })
+
+      
+      
+}
+    export {Tabs, tabsAppender}
      
